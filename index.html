@@ -1107,7 +1107,7 @@
             }
 
             function checkAnswer() {
-                const userAnswer = document.getElementById('answerInput').value.trim().toLowerCase();
+                const userAnswer = document.getElementById('answerInput').value.trim();
 
                 if (!userAnswer) {
                     const input = document.getElementById('answerInput');
@@ -1120,7 +1120,7 @@
                     return;
                 }
 
-                const correctAns = currentQuestion.answer.toLowerCase();
+                const correctAns = currentQuestion.answer.trim();
                 const isCorrect = userAnswer === correctAns || correctAns.includes(userAnswer);
 
                 if (isCorrect) {
@@ -1165,10 +1165,7 @@
                 }, 2000);
 
                 const paperNote = document.getElementById(`paper-${currentCandyNumber}`);
-                paperNote.innerHTML = `
-                    <div style="font-size: 0.9rem; color: #FF69B4; margin-bottom: 10px; font-weight: 600;">${currentQuestion.category}</div>
-                    <div style="font-size: 1.1rem; line-height: 1.5;">${currentQuestion.question}</div>
-                `;
+
                 paperNote.classList.add('show');
             }
 
